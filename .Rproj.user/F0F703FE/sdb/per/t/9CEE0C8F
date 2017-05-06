@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\n# This is the user-interface definition of a Shiny web application.\n# You can find out more about building applications with Shiny here:\n#\n# http://shiny.rstudio.com\n#\n\nlibrary(shiny)\n\nshinyUI(fluidPage(\n\n  # Application title\n  titlePanel(\"Neural Net Approximation for Non-Linear Functions\"),\n  # Sidebar with a slider input for number of bins\n  sidebarLayout(\n    sidebarPanel(\n      h4(\"Application Overview\"),\n      div(\n        p(\"This Shiny app will demonstrate the ability of a Neural Net model to approximate a non-linear function.\"),\n        p(\"The user will be able to:\"),\n        tags$ul( \n         tags$li(\"Select one of two, non-linear functions ( y=x^2 or y=sin(x)+error )\"),\n         tags$li(\"Set the number of hidden neural net neurons (nodes) for Hidden Layer 1 and Layer 2,\"),\n         tags$li(\"Select a range for predictor variable X\"),\n         tags$li(\"Train a neural network\"),\n         tags$li(\"Plot the results\")\n        )  \n       ),\n      h4(\"Inputs\"),\n      div(\n        selectInput(\"Function\", \"Function:\",c(\"y=x^2\" = \"f1\",\"y=sin(x)+error\" = \"f2\")),\n        sliderInput(\"xRange\", \"X Range:\", min = -10, max =10, value = c(-5,5)),\n        sliderInput(\"nNodesL1\", \"Layer 1 Hidden Nodes:\", min = 10, max =20, value =10),\n        sliderInput(\"nNodesL2\", \"Layer 2 Hidden Nodes:\", min = 5, max =10, value =5),\n        actionButton(\"btnTrain\",\"Train Model and Visualize\")\n      ),\n      h4(\"Note\"),\n      div(\n        p(\"As you increase the range of X, you will need to increase the number of neurons in Layer 1 and Layer 2. Give it a try and hopefully the algorithm will converge!\")\n      ),\n      hr(),\n      h4(\"About\"),\n      div(\n        span(\"Created by:\"),tags$a(href=\"mailto:etsibert@hotmail.com\" ,\"Eric Tsibertzopoulos\")\n      )\n      ),\n\n    # Show a plot of the generated distribution\n    mainPanel(\n      tabsetPanel(\n        tabPanel(\"Exploration\",  plotOutput(\"mainPlot\"), plotOutput(\"net\")),\n        tabPanel(\"Error\", textOutput(\"MSE\"),plotOutput(\"boxPlot\")),\n        tabPanel(\"Data\",  tableOutput(\"df\"))\n      )\n  \n    )\n  )\n))\n",
+    "created" : 1494106899932.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2286384611",
+    "id" : "9CEE0C8F",
+    "lastKnownWriteTime" : 1494106860,
+    "last_content_update" : 1494106860,
+    "path" : "~/NeuralNetShinyApp/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

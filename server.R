@@ -34,7 +34,7 @@ shinyServer(function(input, output) {
           par(new=T)
           plot(df$X, y_hat$net.result, col="blue",xlab="", ylab="")
           par(new=T)
-          plot(df$X, y_hat$net.result, type="l", col="black",xlab="X", ylab="x^2 and Neural Approx.", main="sin(x)+error vs Neural Net Approximation")
+          plot(df$X, y_hat$net.result, type="l", col="black",xlab="X", ylab="x^2 and Neural Approx.", main="y=x^2 vs Neural Net Approximation")
           legend('bottomright',legend=c('y=x^2','Neural Net'),pch=18,col=c('red','blue'), bty='n')
         })
         incProgress(4/8)
